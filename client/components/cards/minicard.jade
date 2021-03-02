@@ -2,7 +2,10 @@ template(name="minicard")
   .minicard(
     class="{{#if isLinkedCard}}linked-card{{/if}}"
     class="{{#if isLinkedBoard}}linked-board{{/if}}"
-    class="minicard-{{colorClass}}")
+    class="minicard-{{colorClass}}")    
+    unless isMiniScreen
+      a.fa.fa-navicon.minicard-mnu-open(href=absoluteUrl
+        onmousedown="if (!(navigator.userAgent.toLowerCase().indexOf('edg')> -1)) {this.click();}")
     if isMiniScreen
       .handle
         .fa.fa-arrows
